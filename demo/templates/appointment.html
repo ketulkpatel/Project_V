@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				<form class="login100-form validate-form" method="post" action="/takeappointment/{{id}}">
+                    {% csrf_token %}
+                    {% for  message in messages %}
+					<p id="messages">{{ message }}</p>
+				{% endfor %}
+					<span class="login100-form-title p-b-33">
+							Appointement
+					</span>
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" type="submit">
+							Take appointement
+						</button>
+					</div>
+					<div class="container-login100-form-btn m-t-20">
+						<a class="login100-form-btn" href="{% url 'home' %}">
+							Logout
+						</a>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	
+
+	
+
+{% endblock %}

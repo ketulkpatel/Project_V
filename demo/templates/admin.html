@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+    .text
+    {
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:20px;
+     background: #e9faff;
+     font-weight:bold;
+    }
+    .appointments {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: #e9faff;
+    }
+    .green{
+    color:green;
+    }
+    .red
+    {
+        color:red;
+    }
+</style>
+
+
+<body>
+
+
+
+
+
+
+
+
+<div class="limiter">
+    <div class="text" >Appointments List</div>
+		<div class="appointments">
+
+
+
+<table class="table table-hover data_Table">
+    <tr>
+            <th> Name</th>
+            <th> Contact</th>
+            <th> Email-ID</th>
+            <th>Visit type</th>
+            <th>Description</th>
+            <th>DateFrom</th>
+            <th>DateTo</th>
+            <th>action</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ i.user_id.name }}</td>
+        <td>{{ i.user_id.contact }}</td>
+        <td>{{ i.user_id.email_id }}</td>
+        <td>{{ i.visit_type }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.date_from }}</td>
+        <td>{{ i.date_to }}</td>
+        {% if i.is_Active == "True" %}
+            <td>Accepted</td>
+        {% else %}
+            <td><i class="fa fa-check green" aria-hidden="true"></i> &nbsp;<i class="fa fa-times red" aria-hidden="true"></i></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+		</div>
+	</div>
+
+
+{% endblock %}

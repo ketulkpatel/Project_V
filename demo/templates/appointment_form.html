@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+<style type="text/css">
+	select {
+    border: none;
+    outline: none;
+    padding:25px;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.files,td{
+	padding:25px;
+}
+</style>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+
+				<form class="login100-form validate-form" method="POST" action="/submitappointment/{{id}}" enctype="multipart/form-data">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-33">
+						Appointment Form
+					</span>
+
+					<div class="wrap-input100 validate-input">
+						 <input class="input100" type="text" name="visit" placeholder="Type of Visit">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="desc" placeholder="What is your Purpose to visit?">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div  class="wrap-input100 validate-input" >
+					<table class="center">
+							<tr>
+							<td>Start Date</td>
+							<td><input  name="date_from" type="date"></td>
+							<span class="focus-input100-1"></span>
+							<span class="focus-input100-2"></span>
+							</table>
+					</div>
+					<div  class="wrap-input100 validate-input" >
+					<table class="center">
+							<tr>
+							<td>End Date</td>
+							<td><input  name="date_to" type="date"></td>
+							<span class="focus-input100-1"></span>
+							<span class="focus-input100-2"></span>
+							</table>
+					</div>
+                   	<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" type="submit">
+							TAKE PHOTO & SUBMIT APPOINTMENT
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	
+
+{% endblock %}
